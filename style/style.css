@@ -2,10 +2,13 @@
 @import './normalize.css';
 
 body{
+    background-color: #e3d6bf;
+}
+main{
     display: flex;
     justify-content: center;
 }
-.main{
+.main-container{
     width: 80vw;
 }
 /* 입력 부분 */
@@ -77,6 +80,12 @@ body{
 .discussion__content{
     margin-left: 1rem;
 }
+.discussion__avatar--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:5px;
+}
 .discussion__avatar--image{
     width: 64px;
     height: 64px;
@@ -86,6 +95,36 @@ body{
     color: #414141;
     font-size: 1.3rem;
 }
-ul {
-    padding: 0;
+
+
+.post-container{
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, auto));
+    row-gap: 20px;
+    justify-items: center;
+}
+
+.post-it {
+    background-color: #ececb8;
+    box-shadow: 5px 5px 15px 1px #414141;
+    width: 30vw;
+    min-width: 270px;
+    max-width: 450px;
+    height: 20vw;
+    min-height: 270px;
+    max-height: 450px;
+}
+
+
+/* top 버튼 */
+.btn-top{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border : none;
+    background-color: orange;
 }
