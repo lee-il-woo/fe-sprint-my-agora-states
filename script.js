@@ -1,6 +1,6 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
 history.scrollRestoration = "auto"
-
+// agoraStatesDiscussions >>> 객체 정보 담고있는 배열
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
 // 포스트잇에 넣을 내용을 data.js에서 가져옴
 const convertToDiscussion = (obj) => {

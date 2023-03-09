@@ -4,6 +4,7 @@
 body{
     background-color: #e3d6bf;
 }
+
 main{
     display: flex;
     justify-content: center;
@@ -11,13 +12,47 @@ main{
 .main-container{
     width: 80vw;
 }
+.main-container h1{
+    text-align: center;
+}
+
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw;
+    margin-bottom: 30px;
+}
+.question button{
+    width: 150px;
+    height: 70px;
+    border: none;
+    border-radius: 70px;
+    background-color: orange;
+}
 /* 입력 부분 */
+.btn-input-close{
+    background-color: rgb(42, 67, 165);
+    border: none;
+    width: 150px;
+    height: 70px;
+    border-radius: 20px;
+}
 .form__container{
     width: 40vw;
+    min-width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 5px 5px 15px 1px #414141;
+    transform: translateX(-50%) translateY(-50%);
 }
 .form .form__input--wrapper{
-    display: flex;
-    justify-content: start;
     margin-bottom: 10px;
 }
 .form__input--wrapper> div{
@@ -26,21 +61,20 @@ main{
 }
 
 #name {
-    width: 10vw;
+    width: 40vw;
     height: 40px;
-    min-width: 100px;
+    min-width: 400px;
     border-radius: 40px;
     text-align: center;
     border: none;
     background-color: rgb(143, 243, 243);
+    margin-bottom: 10px;
 }
-.form__input--name{
-    margin-right: 10px;
-}
+
 #title {
-    width: 25vw;
+    width: 40vw;
     height: 40px;
-    min-width: 220px;
+    min-width: 400px;
     border-radius: 40px;
     text-align: center;
     border: none;
@@ -48,13 +82,13 @@ main{
 }
 
 #story {
-    width: 36vw;
-    min-width: 330px;
-    height: 50px;
+    width: 40vw;
+    min-width: 400px;
+    height: 200px;
     background-color:rgb(243, 211, 253);
     border: none;
     border-radius: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .form textarea{
@@ -64,9 +98,9 @@ main{
 .btn-submit{
     background-color: brown;
     border: none;
-    height: 30px;
-    border-radius: 30px;
-    padding: 10px 30px;
+    width: 150px;
+    height: 70px;
+    border-radius: 20px;
 }
 
 /* 글 리스트 스타일 */
@@ -138,7 +172,7 @@ main{
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.post-it-modal-hide {
+.hide {
     display: none;
 }
 
@@ -157,4 +191,10 @@ main{
     background-color: #ececb8;
     box-shadow: 5px 5px 15px 1px #414141;
     transform: translateX(-50%) translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    .post-container{
+        grid-template-columns: repeat(auto-fill, minmax(80%, auto));
+    }
 }

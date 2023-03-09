@@ -1,59 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Agora States</title>
+    <link rel="stylesheet" href="../style/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
+      integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Agora States</title>
-  <link rel="stylesheet" href="../style/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.8/purify.js"
-    integrity="sha512-QaF+0tDlqVmwZaQSc0kImgYmw+Cd66TxA5D9X70I5V9BNSqk6yBTbyqw2VEUsVYV5OTbxw8HD9d45on1wvYv7g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
-  <main>
-    <div class="main-container">
-      <h1>My Agora States</h1>
-      <section class="form__container">
-        <form action="" method="get" class="form" onsubmit="return false">
-          <div class="form__input--wrapper">
-            <div class="form__input--name">
-              <label for="name"></label>
-              <input type="text" name="name" id="name" placeholder="name" required>
-            </div>
-            <div class="form__input--title">
-              <label for="title"></label>
-              <input type="text" name="title" id="title" placeholder="title" required>
-            </div>
-          </div>
-          <div>
-          <div class="form__textbox">
-            <label for="story"></label>
-            <textarea id="story" name="story" placeholder="질문을 작성하세요" required ></textarea>
-          </div>
-          <div class="form__submit">
-            <input class="btn-submit" type="submit" value="submit">
-          </div>
+  <body>
+    <main>
+      <div class="main-container">
+        <h1>My Agora States</h1>
+        <div class="question">
+          <button type="button" class="btn-question">질문하기</button>
         </div>
-        </form>
-      </section>
-      <!-- 자동으로 글이 채워진다 -->
-      <section class="post-container">
-      </section>
+        <div class="input-modal hide">
+          <section class="form__container">
+            <form action="" method="get" class="form" onsubmit="return false">
+              <div class="form__input--wrapper">
+                <div class="form__input--name">
+                  <label for="name"></label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="name"
+                    required
+                  />
+                </div>
+                <div class="form__input--title">
+                  <label for="title"></label>
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="title"
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <div class="form__textbox">
+                  <label for="story"></label>
+                  <textarea
+                    id="story"
+                    name="story"
+                    placeholder="질문을 작성하세요"
+                    required
+                  ></textarea>
+                </div>
+                <div class="form__submit">
+                  <input class="btn-submit" type="submit" value="submit" />
+                  <button type="button" class="btn-input-close">cancle</button>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+        <!-- 자동으로 글이 채워진다 -->
+        <section class="post-container"></section>
+      </div>
+    </main>
+    <button class="btn-top">top</button>
+
+    <!--포스트잇 상세 정보 모달창 -->
+    <div class="post-it-modal hide">
+      <div class="post-it-modal-body">Modal</div>
     </div>
-  </main>
-  <button class="btn-top">top</button>
-
-  <!--포스트잇 상세 정보 모달창 -->
-  <div class="post-it-modal post-it-modal-hide">
-    <div class="post-it-modal-body">Modal</div>
-  </div>
-
-</body>
-<script src="data.js"></script>
-<script src="script.js"></script>
-<script src="event.js"></script>
-
+  </body>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script type="module" src="event.js"></script>
 </html>
