@@ -1,19 +1,12 @@
 // index.html을 열어서 agoraStatesDiscussions 배열 요소를 확인하세요.
-let form = document.querySelector('form');
 history.scrollRestoration = "auto"
-form.addEventListener('submit',(e)=>{
-  console.log(e)
-})
-
 
 // convertToDiscussion은 아고라 스테이츠 데이터를 DOM으로 바꿔줍니다.
+// 포스트잇에 넣을 내용을 data.js에서 가져옴
 const convertToDiscussion = (obj) => {
-  const li = document.createElement("li"); // li 요소 생성
-  li.className = "discussion__container"; // 클래스 이름 지정
-
+  // html요소 만들어줌
   const postIt = document.createElement("div");
   postIt.className = ("post-it")
-
   const avatarWrapper = document.createElement("div");
   avatarWrapper.className = "discussion__avatar--wrapper";
   const discussionContent = document.createElement("div");
@@ -23,18 +16,13 @@ const convertToDiscussion = (obj) => {
 
   // TODO: 객체 하나에 담긴 정보를 DOM에 적절히 넣어주세요.
   const author = obj.author;
-
   const createdAt = obj.createdAt;
-
-
-
   // 이미지 가져와서 태그 만들어줌
   const avatar = document.createElement("img");
   avatar.className = "discussion__avatar--image";
   const avatarUrl = obj.avatarUrl;
   avatar.src = avatarUrl;
   avatarWrapper.append(avatar);
-
   //타이틀 만들어줌
   const url = obj.url
   const title = obj.title
@@ -48,17 +36,15 @@ const convertToDiscussion = (obj) => {
   const discussionInformation = document.createElement("div");
   discussionInformation.className ="discussion__information"
   discussionInformation.textContent = `${author} / ${createdAt}`
-  
+  //트리 구조로 넣어줌
   discussionTitle.append(discussionTitle2)
   discussionContent.append(discussionTitle, discussionInformation)
-
-
   postIt.append(avatarWrapper, discussionContent, discussionAnswered);
-  
   return postIt;
 };
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
+// 10개씩만 불러오도록 함
 let dataLengthCount = 0;
 const render = (element) => {
   for (let i = dataLengthCount; i < agoraStatesDiscussions.length; i += 1) {
@@ -71,21 +57,6 @@ const render = (element) => {
   return;
 };
 
-// ul 요소에 agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링합니다.
-// const ul = document.querySelector("ul.discussions__container");
-// render(ul);
+// 포스트잇에 agoraStatesDiscussions 배열의 데이터를 화면에 렌더링합니다.
 const postContainer = document.querySelector(".post-container");
 render(postContainer);
-
-// 스크롤이 아래로 내려가면 글 더 불러오기
-document.addEventListener('scroll',(e)=>{
-  if((window.innerHeight + window.scrollY) >= document.body.offsetHeight){
-    render(postContainer);
-  }
-})
-
-//스크롤 리셋 버튼
-let btnTop = document.querySelector('.btn-top')
-btnTop.addEventListener('click',()=>{
-  scrollTo(0,0)
-})
