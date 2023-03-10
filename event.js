@@ -69,7 +69,6 @@ scrollTo({behavior:'smooth',top:0})
 })
 
 
-const body = document.querySelector('body')
 const postIt = document.querySelectorAll('.post-it')
 const postItModal = document.querySelector('.post-it-modal')
 const postItModalTitle = document.querySelector('.post-it-modal-title')
@@ -89,15 +88,19 @@ postIt.forEach((ele)=>{
         postItModalTitle.textContent = e.target.children[1].children[0].children[0].textContent
         pistItModalInfo.textContent = e.target.children[1].children[1].textContent
         postItModalQuestion.textContent = e.target.children[2].textContent
+        if(postItModalQuestion.textContent.includes('http')){
+            postItModalQuestion.href=e.target.children[2].textContent
+        }
         if(e.target.children[3].children[1]){
+            postItModalAvatar.classList.remove('hide')
             postItModalAvatar.src = e.target.children[3].children[1].src
             postItModalInfo.textContent = `${e.target.children[3].children[0].textContent} / ${e.target.children[3].children[3].textContent}`
             postItModalUrl.textContent = e.target.children[3].children[2].textContent
         }else{
+            postItModalAvatar.classList.add('hide')
             postItModalAvatar.src = ''
-            postItModalUrl.textContent = ''
-            postItModalInfo.textContent = '아직 답변이 없습니다.'
-            postItModalAnswer.append(postItModalInfo)
+            postItModalUrl.textContent = '아직 답변이 없습니다.'
+            postItModalInfo.textContent = ''
         }
     })
 })
