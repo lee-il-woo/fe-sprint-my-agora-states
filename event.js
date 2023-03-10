@@ -1,4 +1,4 @@
-import inputClear from "./inputClear.js"
+import inputClear from "/inputClear.js"
 
 // 버튼 누를 시 입력 폼이 나타나도록
 let isInputModal = null
