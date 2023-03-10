@@ -41,6 +41,7 @@ inputForm.addEventListener('submit', (e)=>{
         date = `0${date}`
     }
     const submitObj = {
+        url:null,
         author: e.target.elements.name.value,
         title: e.target.elements.title.value,
         bodyHTML: e.target.elements.story.value,
@@ -71,9 +72,13 @@ scrollTo({behavior:'smooth',top:0})
 const body = document.querySelector('body')
 const postIt = document.querySelectorAll('.post-it')
 const postItModal = document.querySelector('.post-it-modal')
-const postItModalBody = document.querySelector('.post-it-modal-body')
-
-// 포스트잇 클릭 시 모달창 보여짐
+const postItModalTitle = document.querySelector('.post-it-modal-title')
+const pistItModalInfo = document.querySelector('.post-it-modal-info')
+const postItModalQuestion = document.querySelector('.post-it-modal-question')
+const postItModalAnswer = document.querySelector('.post-it-modal-answer-wrap')
+const postItModalAvatar = document.querySelector('.post-it-modal-answer-avatar')
+const postItModalInfo = document.querySelector('.post-it-modal-answer-info')
+const postItModalUrl = document.querySelector('.post-it-modal-answer-url')
 postIt.forEach((ele)=>{
     ele.addEventListener('click',(e)=>{
         if(isInputModal){ // 인풋 모달 활성화 시 포스트잇 모달 금지
@@ -81,7 +86,19 @@ postIt.forEach((ele)=>{
             return;
         }
         postItModal.classList.remove('hide')
-        postItModalBody.textContent = e.target.children[1].children[0].textContent
+        postItModalTitle.textContent = e.target.children[1].children[0].children[0].textContent
+        pistItModalInfo.textContent = e.target.children[1].children[1].textContent
+        postItModalQuestion.textContent = e.target.children[2].textContent
+        if(e.target.children[3].children[1]){
+            postItModalAvatar.src = e.target.children[3].children[1].src
+            postItModalInfo.textContent = `${e.target.children[3].children[0].textContent} / ${e.target.children[3].children[3].textContent}`
+            postItModalUrl.textContent = e.target.children[3].children[2].textContent
+        }else{
+            postItModalAvatar.src = ''
+            postItModalUrl.textContent = ''
+            postItModalInfo.textContent = '아직 답변이 없습니다.'
+            postItModalAnswer.append(postItModalInfo)
+        }
     })
 })
 
