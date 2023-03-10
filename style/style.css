@@ -1,9 +1,9 @@
 /* TODO: 보기 좋은 나만의 아고라 스테이츠를 위해서 CSS를 수정하세요. */
-@import './normalize.css';
+@import '/style/normalize.css';
 
 body{
     background-color: #e3d6bf;
-    background-image: url(../image/postIt-background.png);
+    background-image: url(/image/postIt-background.png);
     padding-bottom: 30px;
 }
 

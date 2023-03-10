@@ -1,4 +1,4 @@
-import inputClear from "./inputClear.js"
+import inputClear from "/inputClear.js"
 
 // 버튼 누를 시 입력 폼이 나타나도록
 let isInputModal = null
@@ -45,7 +45,7 @@ inputForm.addEventListener('submit', (e)=>{
         author: e.target.elements.name.value,
         title: e.target.elements.title.value,
         bodyHTML: e.target.elements.story.value,
-        avatarUrl: './image/codestates-logo.png',
+        avatarUrl: '/image/codestates-logo.png',
         answer: null,
         createdAt: `${year}-${month}-${date}T${hour}:${minute}:${second}Z`
     }
