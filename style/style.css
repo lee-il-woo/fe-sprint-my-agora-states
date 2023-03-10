@@ -3,7 +3,7 @@
 
 body{
     background-color: #e3d6bf;
-    background-image: url(../image/postIt-background.png);
+    background-image: url(/image/postIt-background.png);
     padding-bottom: 30px;
 }
 
